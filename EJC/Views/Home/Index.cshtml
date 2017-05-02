@@ -1,31 +1,182 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@using Highsoft.Web.Mvc.Charts
+<div class="container">
+    <div class="ep-decor-module">
+        <div class="row">
+            <div class="col-sm-12 col-lg-8">
+                <div class="row">
+                    <div class="col-sm-6 fmt">
+                        <div class="row">
+                            <div class="col-sm-6 fpr">
+                                <button type="submit" class="fp2 btn btn-block time-btns" onclick="alert('1 YEAR')">1 YEAR</button>
+                            </div>
+                            <div class="col-sm-6 fpr">
+                                <button type="submit" class="fp2 btn btn-block time-btns" onclick="alert('All time')">All time</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 fpr fmt">
+                        <div class="form-group">
+                            <div class="input-group date" id="datetimepicker1">
+                                <input type="text" class="form-control" placeholder="Select Date" id="mindate" value="01.01.1999" />
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 fpr fmt">
+                        <div class="form-group">
+                            <div class="input-group date" id="datetimepicker2">
+                                <input type="text" class="form-control" placeholder="Select Date" id="maxdate" />
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 fpr fmt">
+                            <select class="form-control" id="Groups">
+                                <option disabled selected>Select Group</option>
+                                @foreach (var group in ViewBag.Groups)
+                                {
+                                    <option label="@group.Name">@group.ID</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-sm-3 fpr fmt">
+                            <select class="form-control" id="Chart">
+                                <option disabled selected>Select Chart</option>
+                                @foreach (var chart in ViewBag.Charts)
+                                {
+                                    <option label="@chart.Name">@chart.ID</option>
+                                }
+                            </select>
+                        </div>
+                    <div class="col-sm-6 fpr">
+                        <a href="#" id="displayBtn" class="btn btn-primary btn-block col-sm-12 fmt fp2">Add Data</a>
+                    </div>
+                    <div class="col-sm-12 fpr fmt">
+                        <div>
+                            @(Html.Highsoft().Highcharts(
+        new Highcharts
+        {
+            Title = new Title
+            {
+                Text = "Monthly Average Temperature",
+                X = -20
+            },
+            Subtitle = new Subtitle
+            {
+                Text = "Source: WorldClimate.com",
+                X = -20
+            },
+            XAxis = new List<XAxis>
+            {
+                new XAxis
+                {
+                    Categories = new List<string> { "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" },
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+                }
+            },
+            YAxis = new List<YAxis>
+            {
+                new YAxis
+                {
+                    Title = new YAxisTitle
+                    {
+                        Text = "Temperature (°C)"
+                    },
+                    PlotLines = new List<YAxisPlotLines>
+                    {
+                            new YAxisPlotLines
+                        {
+                            Value = 0,
+                            Width = 1,
+                            Color = "#808080"
+                        }
+                    }
+                }
+            },
+            Tooltip = new Tooltip
+            {
+                ValueSuffix = "°C"
+            },
+            Legend = new Legend
+            {
+                Layout = LegendLayout.Vertical,
+                Align = LegendAlign.Right,
+                VerticalAlign = LegendVerticalAlign.Middle,
+                BorderWidth = 0
+            },
+            Series = new List<Series>
+            {
+                new LineSeries
+                {
+                    Name = "Tokyo",
+                    Data = @ViewData["tokyoData"] as List<LineSeriesData>
+                },
+                new LineSeries
+                {
+                    Name = "NY",
+                    Data = @ViewData["nyData"] as List<LineSeriesData>
+                },
+                new LineSeries
+                {
+                    Name = "Berlin",
+                    Data = @ViewData["berlinData"] as List<LineSeriesData>
+                },
+                new LineSeries
+                {
+                    Name = "London",
+                    Data = @ViewData["londonData"] as List<LineSeriesData>
+                }
+            }
+        }
+        , "chart")
+                            )
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-4">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-12 fpr fmt">
+                        <div id="datar1"></div>
+                        @*<img src="~/Content/img/graph.png" />*@
+                        @*<div class="row">
+                                <div class="col-sm-4"></div>
+                                <a href="#" class="btn btn-primary btn-block col-sm-4 fp2">Meer Prijsinfo</a>
+                                <div class="col-sm-4"></div>
+                            </div>*@
+                    </div>
+                    <div class="col-sm-6 col-lg-12 fpr fmt">
+                        <div id="datar2"></div>
+                        @*<img src="~/Content/img/graph.png" />*@
+                        @*<div class="row">
+                                <div class="col-sm-4"></div>
+                                <a href="#" class="btn btn-primary btn-block col-sm-4 fp2">Meer Prijsinfo</a>
+                                <div class="col-sm-4"></div>
+                            </div>*@
+                    </div>
+                    <div class="col-sm-6 col-lg-12 fpr fmt">
+                        <div id="datar3"></div>
+                        @*<img src="~/Content/img/graph.png" />*@
+                        @*<div class="row">
+                                <div class="col-sm-4"></div>
+                                <a href="#" class="btn btn-primary btn-block col-sm-4 fp2">Meer Prijsinfo</a>
+                                <div class="col-sm-4"></div>
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+            @*<img src="~/Content/img/graph.png" class="col-sm-12 col-md-6 col-lg-4 fmt" />
+                    <img src="~/Content/img/graph.png" class="col-sm-12 col-md-6 col-lg-4 fmt" />
+                    <img src="~/Content/img/graph.png" class="col-sm-12 col-md-6 col-lg-4 fmt" />
+                <img src="~/Content/img/qwertypng.png" class="col-sm-12 logo fmt" />*@
+        </div>
     </div>
 </div>

@@ -1,41 +1,47 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title – приложение ASP.NET</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Site.css" type="text/css" rel="stylesheet" />
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <meta name="description" content="Energy Journal Charts" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="fbgw">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                    <li>@Html.ActionLink("О программе", "About", "Home")</li>
-                    <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
-                </ul>
+            <a href="main.asp" class="row">
+                <img class="col-sm-12 col-md-4 logo" src="~/Content/img/ej.png" alt="Energy Journal logo">
+                <div clas="col-sm-12 col-md-8"></div>
+            </a>
+            <div class="row">
+                <div class="row col-md-12 ftd">
+                    <p class="col-sm-3 col-md-2 ht"><a href="http://www.zeroemissionsolutions.com/energiejournaal/?utm_medium=email&utm_campaign=Energiejournaal&utm_content=Energiejournaal+CID_6be749885de8858a7fbbe6cca6685128&utm_source=Effect%20Mailer&utm_term=httpwwwzeroemissionsolutionscomenergiejournaal">PRIJZEN</a></p>
+                    <p class="col-sm-3 col-md-2 ht fp"><a href="http://energiejournaal.be/?a=redaction">DE REDACTIE</a></p>
+                    <p class="col-sm-3 col-md-2 ht"><a href="http://www.zeroemissionsolutions.com/energiejournaal/?utm_medium=email&utm_campaign=Energiejournaal&utm_content=Energiejournaal+CID_6be749885de8858a7fbbe6cca6685128&utm_source=Effect%20Mailer&utm_term=httpwwwzeroemissionsolutionscomenergiejournaal">ABONNEMENT</a></p>
+                    <p class="col-sm-3 col-md-2 ht">@Html.ActionLink("CHARTS", "Index", "Home")</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
-        </footer>
-    </div>
-
+    <hr style="width:100%;height:2px;background-color:#93B359;margin:0;">
+    @RenderBody()
+    <footer class="footer" id="main-footer">
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-sm-6"><p><span class="footer-logo"><img src="~/Content/img/footer-loog.png" alt="Energy News"></span></p></div>
+                </div>
+                <div class="row">
+                    <p> <a href="#">Disclaimer</a> | <a href="#">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

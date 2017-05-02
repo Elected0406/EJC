@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище EnergyTerminalNModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "EnergyTerminalN.Zes.vwChart" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="vwChart">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Group" />
+            <PropertyRef Name="PeriodName" />
+          </Key>
+          <Property Name="ID" Type="smallint" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Group" Type="smallint" Nullable="false" />
+          <Property Name="Period" Type="tinyint" />
+          <Property Name="PeriodName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "EnergyTerminalN.Zes.vwData" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="vwData">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Chart" />
+            <PropertyRef Name="ChartName" />
+            <PropertyRef Name="Line" />
+            <PropertyRef Name="LineName" />
+            <PropertyRef Name="LineTypeName" />
+            <PropertyRef Name="PeriodName" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Chart" Type="smallint" Nullable="false" />
+          <Property Name="ChartName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Line" Type="smallint" Nullable="false" />
+          <Property Name="LineName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LineType" Type="tinyint" />
+          <Property Name="LineTypeName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Period" Type="tinyint" />
+          <Property Name="PeriodName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Value" Type="money" Nullable="false" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Month" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "EnergyTerminalN.Zes.vwGroup" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="vwGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Function Name="CheckValidKey" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="Zes">
+          <Parameter Name="Key" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="ValidKey" Type="bit" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="fnNewsChart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="Zes">
+          <Parameter Name="Market_ID" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="ID" Type="int" Nullable="false" />
+                <Property Name="Market_ID" Type="int" />
+                <Property Name="Market_Date" Type="smalldatetime" />
+                <Property Name="Market_Value" Type="float" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <EntityContainer Name="Хранилище EnergyTerminalNModelContainer">
+          <EntitySet Name="vwChart" EntityType="Self.vwChart" store:Type="Views" store:Schema="Zes">
+            <DefiningQuery>SELECT 
+    [vwChart].[ID] AS [ID], 
+    [vwChart].[Name] AS [Name], 
+    [vwChart].[Group] AS [Group], 
+    [vwChart].[Period] AS [Period], 
+    [vwChart].[PeriodName] AS [PeriodName]
+    FROM [Zes].[vwChart] AS [vwChart]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwData" EntityType="Self.vwData" store:Type="Views" store:Schema="Zes">
+            <DefiningQuery>SELECT 
+    [vwData].[ID] AS [ID], 
+    [vwData].[Chart] AS [Chart], 
+    [vwData].[ChartName] AS [ChartName], 
+    [vwData].[Line] AS [Line], 
+    [vwData].[LineName] AS [LineName], 
+    [vwData].[LineType] AS [LineType], 
+    [vwData].[LineTypeName] AS [LineTypeName], 
+    [vwData].[Period] AS [Period], 
+    [vwData].[PeriodName] AS [PeriodName], 
+    [vwData].[Date] AS [Date], 
+    [vwData].[Value] AS [Value], 
+    [vwData].[Year] AS [Year], 
+    [vwData].[Month] AS [Month]
+    FROM [Zes].[vwData] AS [vwData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwGroup" EntityType="Self.vwGroup" store:Type="Views" store:Schema="Zes">
+            <DefiningQuery>SELECT 
+    [vwGroup].[ID] AS [ID], 
+    [vwGroup].[Name] AS [Name]
+    FROM [Zes].[vwGroup] AS [vwGroup]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EnergyTerminalNModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="CheckValidKey_Result">
+          <Property Name="ValidKey" Type="Boolean" />
+        </ComplexType>
+        <ComplexType Name="fnNewsChart_Result">
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Market_ID" Type="Int32" />
+          <Property Name="Market_Date" Type="DateTime" />
+          <Property Name="Market_Value" Type="Double" />
+        </ComplexType>
+        <EntityType Name="vwChart">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Group" />
+            <PropertyRef Name="PeriodName" />
+          </Key>
+          <Property Name="ID" Type="Int16" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Group" Type="Int16" Nullable="false" />
+          <Property Name="Period" Type="Byte" />
+          <Property Name="PeriodName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vwData">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Chart" />
+            <PropertyRef Name="ChartName" />
+            <PropertyRef Name="Line" />
+            <PropertyRef Name="LineName" />
+            <PropertyRef Name="LineTypeName" />
+            <PropertyRef Name="PeriodName" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Value" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Chart" Type="Int16" Nullable="false" />
+          <Property Name="ChartName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Line" Type="Int16" Nullable="false" />
+          <Property Name="LineName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LineType" Type="Byte" />
+          <Property Name="LineTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Period" Type="Byte" />
+          <Property Name="PeriodName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Value" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Month" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vwGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="EnergyTerminalN" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="vwCharts" EntityType="Self.vwChart" />
+          <EntitySet Name="vwDatas" EntityType="Self.vwData" />
+          <EntitySet Name="vwGroups" EntityType="Self.vwGroup" />
+          <FunctionImport Name="CheckValidKey" IsComposable="true" ReturnType="Collection(EnergyTerminalNModel.CheckValidKey_Result)">
+            <Parameter Name="Key" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="fnNewsChart" IsComposable="true" ReturnType="Collection(EnergyTerminalNModel.fnNewsChart_Result)">
+            <Parameter Name="Market_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище EnergyTerminalNModelContainer" CdmEntityContainer="EnergyTerminalN">
+          <EntitySetMapping Name="vwCharts">
+            <EntityTypeMapping TypeName="EnergyTerminalNModel.vwChart">
+              <MappingFragment StoreEntitySet="vwChart">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="PeriodName" ColumnName="PeriodName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwDatas">
+            <EntityTypeMapping TypeName="EnergyTerminalNModel.vwData">
+              <MappingFragment StoreEntitySet="vwData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Chart" ColumnName="Chart" />
+                <ScalarProperty Name="ChartName" ColumnName="ChartName" />
+                <ScalarProperty Name="Line" ColumnName="Line" />
+                <ScalarProperty Name="LineName" ColumnName="LineName" />
+                <ScalarProperty Name="LineType" ColumnName="LineType" />
+                <ScalarProperty Name="LineTypeName" ColumnName="LineTypeName" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="PeriodName" ColumnName="PeriodName" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwGroups">
+            <EntityTypeMapping TypeName="EnergyTerminalNModel.vwGroup">
+              <MappingFragment StoreEntitySet="vwGroup">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="Хранилище EnergyTerminalNModel.CheckValidKey" FunctionImportName="CheckValidKey">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EnergyTerminalNModel.CheckValidKey_Result">
+                <ScalarProperty Name="ValidKey" ColumnName="ValidKey" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Хранилище EnergyTerminalNModel.fnNewsChart" FunctionImportName="fnNewsChart">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EnergyTerminalNModel.fnNewsChart_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Market_ID" ColumnName="Market_ID" />
+                <ScalarProperty Name="Market_Date" ColumnName="Market_Date" />
+                <ScalarProperty Name="Market_Value" ColumnName="Market_Value" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
