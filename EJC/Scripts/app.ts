@@ -1,5 +1,4 @@
-﻿///<script type="text / javascript" src ="js / highcharts.js">
-/// <reference path="typings/jquery/jquery.d.ts" />
+﻿/// <reference path="typings/jquery/jquery.d.ts" />
 
 interface IvwChart {
     Id: number;
@@ -50,13 +49,14 @@ class vwData implements IvwData {
 class ChartsList {
     public charts: Array<vwChart> = new Array<vwChart>();
     UpdateChartList(): void {
-        $.getJSON('http://localhost:4051/Home/GetCharts' + '?id=' + $('#Groups').val(),
+        $.getJSON('http://localhost:39955/Home/GetCharts?id=' + $('#Groups').val(),
             (data) => {
+                this.charts = data;
                 var select = '<select class="form-control">'
-                for (var i = 0; i < data.length; i++) {
+                for (var i = 2; i < this.charts.length; i++) {
                     var selectRow =
-                        '<option label="' + data[i].Name +
-                        '" value="' + data[i].ID + '">' + '</option>';
+                        '<option label="' + this.charts[i].Name +
+                        '" value="' + this.charts[i].Id + '">' + '</option>';
                 }
                 select += '<option disabled selected> Select Chart</option>';
                 select += selectRow;
@@ -69,7 +69,7 @@ class DataList {
     public ChartData: Array<vwData> = new Array<vwData>();
     UpdateChartData(): void {
 
-        $.getJSON('http://localhost:4051/Home/GetData' + '?id=' + $('#Chart').val()
+        $.getJSON('http://localhost:39955/Home/GetData?id=' + $('#Chart').val()
             + '&' + 'mindate=' + $('#mindate').val() + '&' + 'maxdate=' + $('#maxdate').val(),
             (data) => {
 

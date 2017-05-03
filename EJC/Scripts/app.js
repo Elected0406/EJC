@@ -1,4 +1,3 @@
-///<script type="text / javascript" src ="js / highcharts.js">
 /// <reference path="typings/jquery/jquery.d.ts" />
 var vwChart = (function () {
     function vwChart(Id, Name, Group, Period, PeriodName) {
@@ -33,11 +32,13 @@ var ChartsList = (function () {
         this.charts = new Array();
     }
     ChartsList.prototype.UpdateChartList = function () {
-        $.getJSON('http://localhost:4051/Home/GetCharts' + '?id=' + $('#Groups').val(), function (data) {
+        var _this = this;
+        $.getJSON('http://localhost:39955/Home/GetCharts?id=' + $('#Groups').val(), function (data) {
+            _this.charts = data;
             var select = '<select class="form-control">';
-            for (var i = 0; i < data.length; i++) {
-                var selectRow = '<option label="' + data[i].Name +
-                    '" value="' + data[i].ID + '">' + '</option>';
+            for (var i = 2; i < _this.charts.length; i++) {
+                var selectRow = '<option label="' + _this.charts[i].Name +
+                    '" value="' + _this.charts[i].Id + '">' + '</option>';
             }
             select += '<option disabled selected> Select Chart</option>';
             select += selectRow;
@@ -53,7 +54,7 @@ var DataList = (function () {
     }
     DataList.prototype.UpdateChartData = function () {
         var _this = this;
-        $.getJSON('http://localhost:4051/Home/GetData' + '?id=' + $('#Chart').val()
+        $.getJSON('http://localhost:39955/Home/GetData?id=' + $('#Chart').val()
             + '&' + 'mindate=' + $('#mindate').val() + '&' + 'maxdate=' + $('#maxdate').val(), function (data) {
             var select = '<div class="row fpr fmt">' +
                 '<div class="col-sm-6 btn-primary">' + 'ChartName' + '</div>' +

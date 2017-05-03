@@ -20,15 +20,22 @@ namespace EJC
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/jquery.unobtrusive-ajax.min.js",
                       "~/Scripts/tether/tether*",
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js",
+                      "~/Scripts/bootstrap.min.js",
+                      "~/Scripts/respond.min.js",
+                      "~/Scripts/moment.min.js",
+                      "~/Scripts/data.js",
                       "~/Scripts/app.js",
-                      "~/Scripts/moment.js"));
+                      "~/Scripts/bootstrap-datetimepicker.js",
+                      "~/Scripts/highcharts/4.2.0/highcharts.js",
+                      "~/Scripts/highcharts/4.2.0/modules/exporting.js",
+                      "~/Scripts/simple-tabs.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/tether/tether*",
-                      "~/Content/bootstrap*"));
+                      "~/Content/bootstrap*",
+                      "~/Content/font-awesome.min.css"));
         }
     }
 }

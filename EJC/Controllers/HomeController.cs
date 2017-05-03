@@ -35,12 +35,12 @@ namespace Energiejournaal.Controllers
             ViewData["berlinData"] = berlinData;
             ViewData["londonData"] = londonData;
             ViewBag.Groups = db.vwGroups.ToList();
-            ViewBag.Charts = db.vwCharts.Where(c => c.ID == selectedIndex).ToList();
+            ViewBag.Charts = db.vwCharts.Where(c => c.Group == selectedIndex).ToList();
             return View();
         }
         public JsonResult GetCharts(int id)
         {
-            var Chart = db.vwCharts.Where(p => p.ID == id).ToList();
+            var Chart = db.vwCharts.Where(p => p.Group == id).ToList();
             return Json(Chart, JsonRequestBehavior.AllowGet);
         }
         public JsonResult GetData(int id, DateTime mindate, DateTime maxdate)
