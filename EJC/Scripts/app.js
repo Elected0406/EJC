@@ -35,13 +35,12 @@ var ChartsList = (function () {
         var _this = this;
         $.getJSON('http://localhost:39955/Home/GetCharts?id=' + $('#Groups').val(), function (data) {
             _this.charts = data;
-            var select = '<select class="form-control">';
-            for (var i = 2; i < _this.charts.length; i++) {
-                var selectRow = '<option label="' + _this.charts[i].Name +
-                    '" value="' + _this.charts[i].Id + '">' + '</option>';
+            var select = '<select class="form-control"><option disabled selected> Select Chart</option>';
+            for (var i = 0; i < _this.charts.length; i++) {
+                var selectRow = '<option label="' + _this.charts[i].Name + '"' +
+                    'value="' + _this.charts[i].Id + '">' + '</option>';
+                select += selectRow;
             }
-            select += '<option disabled selected> Select Chart</option>';
-            select += selectRow;
             select += '</select>';
             $("#Chart").html(select);
         });

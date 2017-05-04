@@ -65,12 +65,7 @@
         {
             Title = new Title
             {
-                Text = "Monthly Average Temperature",
-                X = -20
-            },
-            Subtitle = new Subtitle
-            {
-                Text = "Source: WorldClimate.com",
+                Text = ViewBag.ChartTitle,
                 X = -20
             },
             XAxis = new List<XAxis>
@@ -143,6 +138,7 @@
                 </div>
             </div>
             <div class="col-sm-12 col-lg-4">
+                @ViewBag.Data
                 <div class="row">
                     <div class="col-sm-6 col-lg-12 fpr fmt">
                         <div id="datar1"></div>

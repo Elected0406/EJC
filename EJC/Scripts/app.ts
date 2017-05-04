@@ -52,14 +52,13 @@ class ChartsList {
         $.getJSON('http://localhost:39955/Home/GetCharts?id=' + $('#Groups').val(),
             (data) => {
                 this.charts = data;
-                var select = '<select class="form-control">'
-                for (var i = 2; i < this.charts.length; i++) {
+                var select = '<select class="form-control"><option disabled selected> Select Chart</option>'
+                for (var i = 0; i < this.charts.length; i++) {
                     var selectRow =
-                        '<option label="' + this.charts[i].Name +
-                        '" value="' + this.charts[i].Id + '">' + '</option>';
-                }
-                select += '<option disabled selected> Select Chart</option>';
-                select += selectRow;
+                        '<option label="' + this.charts[i].Name + '"' +
+                        'value="' + this.charts[i].Id + '">' + '</option>';
+                    select += selectRow;
+                }  
                 select += '</select>';
                 $("#Chart").html(select);
             });

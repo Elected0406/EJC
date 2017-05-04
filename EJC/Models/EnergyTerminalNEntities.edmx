@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище EnergyTerminalNModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище EnergyTerminalNModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "EnergyTerminalN.Zes.vwChart" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="vwChart">
@@ -57,6 +57,21 @@
           </Key>
           <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "EnergyTerminalN.Zes.vwLine" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="vwLine">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Chart" />
+            <PropertyRef Name="LineTypeName" />
+          </Key>
+          <Property Name="ID" Type="smallint" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Chart" Type="smallint" Nullable="false" />
+          <Property Name="LineType" Type="tinyint" />
+          <Property Name="LineTypeName" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <Function Name="CheckValidKey" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="Zes">
           <Parameter Name="Key" Type="varchar" Mode="In" />
@@ -114,9 +129,17 @@
     [vwGroup].[Name] AS [Name]
     FROM [Zes].[vwGroup] AS [vwGroup]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="vwLine" EntityType="Self.vwLine" store:Type="Views" store:Schema="Zes">
+            <DefiningQuery>SELECT 
+    [vwLine].[ID] AS [ID], 
+    [vwLine].[Name] AS [Name], 
+    [vwLine].[Chart] AS [Chart], 
+    [vwLine].[LineType] AS [LineType], 
+    [vwLine].[LineTypeName] AS [LineTypeName]
+    FROM [Zes].[vwLine] AS [vwLine]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EnergyTerminalNModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -181,12 +204,26 @@
           <EntitySet Name="vwDatas" EntityType="Self.vwData" />
           <EntitySet Name="vwGroups" EntityType="Self.vwGroup" />
           <FunctionImport Name="CheckValidKey" IsComposable="true" ReturnType="Collection(EnergyTerminalNModel.CheckValidKey_Result)">
-            <Parameter Name="Key" Mode="In" Type="String" />
+          <Parameter Name="Key" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="fnNewsChart" IsComposable="true" ReturnType="Collection(EnergyTerminalNModel.fnNewsChart_Result)">
-            <Parameter Name="Market_ID" Mode="In" Type="Int32" />
+          <Parameter Name="Market_ID" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="vwLines" EntityType="EnergyTerminalNModel.vwLine" />
         </EntityContainer>
+        <EntityType Name="vwLine">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Chart" />
+            <PropertyRef Name="LineTypeName" />
+          </Key>
+          <Property Name="ID" Type="Int16" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Chart" Type="Int16" Nullable="false" />
+          <Property Name="LineType" Type="Byte" />
+          <Property Name="LineTypeName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -248,6 +285,17 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="vwLines">
+            <EntityTypeMapping TypeName="EnergyTerminalNModel.vwLine">
+              <MappingFragment StoreEntitySet="vwLine">
+                <ScalarProperty Name="LineTypeName" ColumnName="LineTypeName" />
+                <ScalarProperty Name="LineType" ColumnName="LineType" />
+                <ScalarProperty Name="Chart" ColumnName="Chart" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -8,6 +8,7 @@
         <EntityTypeShape EntityType="EnergyTerminalNModel.vwChart" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EnergyTerminalNModel.vwData" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EnergyTerminalNModel.vwGroup" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EnergyTerminalNModel.vwLine" Width="1.5" PointX="0.75" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

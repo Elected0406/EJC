@@ -13,11 +13,20 @@ namespace EJC.Models
 {
 
 using System;
+    using System.Collections.Generic;
     
-public partial class CheckValidKey_Result
+public partial class vwLine
 {
 
-    public Nullable<bool> ValidKey { get; set; }
+    public short ID { get; set; }
+
+    public string Name { get; set; }
+
+    public short Chart { get; set; }
+
+    public Nullable<byte> LineType { get; set; }
+
+    public string LineTypeName { get; set; }
 
 }
 
