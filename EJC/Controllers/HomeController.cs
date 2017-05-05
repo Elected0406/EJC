@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Text;
 using System.Web.Mvc;
-using Highsoft.Web.Mvc.Charts;
-using EJC.Models;
 using MoreLinq;
+using DotNet.Highcharts;
+using DotNet.Highcharts.Enums;
+using DotNet.Highcharts.Helpers;
+using DotNet.Highcharts.Options;
+using System.Drawing;
+using EJC.Models;
 
 namespace Energiejournaal.Controllers
 {
@@ -21,34 +23,68 @@ namespace Energiejournaal.Controllers
             var Linescount = Datas.DistinctBy(x => x.Line).Count();
             var Linename = Datas.DistinctBy(x => x.LineName);
             var fuck = Linename.ToList();
-            for (int i = 0; i < Linescount; i++)
-            {
-                List<double> tokyoVa1lues = new List<double> { 7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6 };
-            }
-            List<double> tokyoValues = new List<double> { 7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6 };
-            List<double> nyValues = new List<double> { -0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5 };
-            List<double> berlinValues = new List<double> { -0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0 };
-            List<double> londonValues = new List<double> { 3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8 };
-            List<LineSeriesData> tokyoData = new List<LineSeriesData>();
-            List<LineSeriesData> nyData = new List<LineSeriesData>();
-            List<LineSeriesData> berlinData = new List<LineSeriesData>();
-            List<LineSeriesData> londonData = new List<LineSeriesData>();
-
-            tokyoValues.ForEach(p => tokyoData.Add(new LineSeriesData { Y = p }));
-            nyValues.ForEach(p => nyData.Add(new LineSeriesData { Y = p }));
-            berlinValues.ForEach(p => berlinData.Add(new LineSeriesData { Y = p }));
-            londonValues.ForEach(p => londonData.Add(new LineSeriesData { Y = p }));
-
-
-            ViewData["tokyoData"] = tokyoData;
-            ViewData["nyData"] = nyData;
-            ViewData["berlinData"] = berlinData;
-            ViewData["londonData"] = londonData;
-            ViewBag.ChartTitle = db.vwDatas.Where(x => x.Chart == Chartnumber).Take(1).FirstOrDefault().ChartName;
+            var ChartTitle = db.vwDatas.Where(x => x.Chart == Chartnumber).Take(1).FirstOrDefault().ChartName;
+            var lines = db.vwLines.Where(x => x.Chart == Chartnumber).OrderBy(x => x.ID).ToList();
             ViewBag.Groups = db.vwGroups.ToList();
             ViewBag.Charts = db.vwCharts.Where(c => c.Group == selectedIndex).ToList();
-            ViewBag.Data = fuck;
-            return View();
+            Highcharts chart = new Highcharts("chart")
+                .InitChart(new Chart
+                {
+                    DefaultSeriesType = ChartTypes.Line,
+                    MarginRight = 130,
+                    MarginBottom = 25,
+                    ClassName = "chart"
+                })
+                .SetTitle(new Title
+                {
+                    Text = ChartTitle,
+                    X = -20
+                })
+                .SetSubtitle(new Subtitle
+                {
+                    Text = "Source: www.energiejournaal.be",
+                    X = -20
+                })
+                .SetXAxis(new XAxis { Categories = ChartsData.Categories })
+                .SetYAxis(new YAxis
+                {
+                    Title = new YAxisTitle { Text = "" },
+                    PlotLines = new[]
+                    {
+                        new YAxisPlotLines
+                        {
+                            Value = 0,
+                            Width = 1,
+                            Color = ColorTranslator.FromHtml("#808080")
+                        }
+                    }
+                })
+                .SetTooltip(new Tooltip
+                {
+                    Formatter = @"function() {
+                                        return '<b>'+ this.series.name +'</b><br/>'+
+                                    this.x +': '+ this.y;
+                                }"
+                })
+                .SetLegend(new Legend
+                {
+                    Layout = Layouts.Vertical,
+                    Align = HorizontalAligns.Right,
+                    VerticalAlign = VerticalAligns.Top,
+                    X = -10,
+                    Y = 100,
+                    BorderWidth = 0
+                })
+                .SetSeries(new[]
+                {
+                    new Series { Name = "Tokyo", Data = new Data(ChartsData.TokioData) },
+                    new Series { Name = "New York", Data = new Data(ChartsData.NewYorkData) },
+                    new Series { Name = "Berlin", Data = new Data(ChartsData.BerlinData) },
+                    new Series { Name = "London", Data = new Data(ChartsData.LondonData) }
+                }
+                );
+
+            return View(chart);
         }
         public JsonResult GetCharts(int id)
         {
@@ -61,6 +97,20 @@ namespace Energiejournaal.Controllers
             var chartdata = db.vwDatas.Where(p => p.Chart == id).Where(s => s.Date >= mindate).Where(s => s.Date <= maxdate).ToList();
             var chartdatacount = chartdata.Count;
             return Json(chartdata, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult MidleChart()
+        {
+            Highcharts chart = new Highcharts("chart")
+            .SetXAxis(new XAxis
+            {
+                Categories = new[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }
+            })
+            .SetSeries(new Series
+            {
+                Data = new Data(new object[] { 29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 })
+            });
+
+            return View(chart);
         }
     }
 }
