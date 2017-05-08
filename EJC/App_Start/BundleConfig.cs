@@ -17,7 +17,8 @@ namespace EJC
             // Используйте версию Modernizr для разработчиков, чтобы учиться работать. Когда вы будете готовы перейти к работе,
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+                        "~/Scripts/modernizr-*",
+                        "~/Scripts/jquery-ui-{version}.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/jquery.unobtrusive-ajax.min.js",
@@ -28,8 +29,8 @@ namespace EJC
                       "~/Scripts/data.js",
                       "~/Scripts/app.js",
                       "~/Scripts/bootstrap-datetimepicker.js",
-                      "~/Scripts/highcharts/4.2.0/highcharts.js",
-                      "~/Scripts/highcharts/4.2.0/modules/exporting.js",
+                      "~/Scripts/Highcharts-4.0.1/js/highcharts.js",
+                      "~/Scripts/Highcharts-4.0.1/js/modules/exporting.js",
                       "~/Scripts/simple-tabs.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

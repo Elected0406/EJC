@@ -8,11 +8,17 @@ namespace EJC.Models
 {
     public static class ChartsData
     {
-        public static readonly object[] BerlinData = { -0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0 };
-        public static readonly string[] Categories = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-        public static readonly object[] LondonData = { 3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8 };
-        public static readonly object[] NewYorkData = { -0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5 };
-        public static readonly object[] TokioData = { 7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6 };
+        public static readonly string[] Categories = { "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015" };
+        public static readonly object[] EekloHonderdbundermolenData = { 1457.00, 1446.00, 1646.00, 1535.00, 1696.00, 1794.00, 1747.00, 1513.00,1276.00,1554.00,1483.00,1514.00,1476.00,1231.00 };
+        public static readonly object[] EekloVerheylegatmolenData = { 2015.00,1639.00,1816.00,1612.00,1900.00,1960.00,1932.00,1703.00,1457.00,1710.00,1685.00,1650.00,1767.00,1352.00 };
+        public static readonly object[] EekloLeidijkmolenData = { 2066.00,1640.00,1795.00,1697.00,1939.00,1900.00,1964.00,1472.00,1443.00,1747.00,1659.00,1681.00,1767.00,1358.00};
+        public static readonly object[] GentData = {1055.00,2067.00,2078.00,2077.00,1844.00,1530.00,1855.00,1744.00,1723.00,1826.00,1384.00 };
+        public static readonly object[] GistelData = {1303.00,2303.00,2089.00,1922.00,2162.00,2057.00,2129.00,2063.00,1646.00};
+        public static readonly object[] DoornikData = {1485.00,2229.00,2188.00,2292.00,1782.00 };
+        public static readonly object[] Eeklo2Data = {447.00,2348.00,2283.00,2367.00,1767.00,};
+        public static readonly object[] WaimesData = {860.00,1966.00,1807.00,1915.00,1563.00,};
+        public static readonly object[] MesnilData = {1435.00,1803.00,1916.00,1215.00,};
+        public static readonly object[] EssenKalmthoutData = {2342.00,2329.00,1929.00,};
 
         public static readonly object[] StockData =
         {

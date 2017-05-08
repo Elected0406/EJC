@@ -36,6 +36,19 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,7 +64,8 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="DotNet.Highcharts, Version=4.0.0.0, Culture=neutral, PublicKeyToken=88854f873df851bf, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNet.Highcharts.4.0\lib\DotNet.Highcharts.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DotNet.Highcharts.Samples\bin\DotNet.Highcharts.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -221,6 +235,47 @@
     <Content Include="Content\tether\tether-theme-basic.min.css" />
     <Content Include="Content\tether\tether.css" />
     <Content Include="Content\tether\tether.min.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -255,8 +310,44 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\site.min.css" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
-    <Content Include="Scripts\app.js.map" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\data.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\resources\app-convert.properties" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\resources\log4j.properties" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\resources\log4j.properties" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\WEB-INF\pages\demo.jsp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\WEB-INF\pages\error.jsp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\WEB-INF\spring\app-convert.properties" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\classes\com\highcharts\export\controller\ExportController.class" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\classes\com\highcharts\export\filter\CorsFilter.class" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\classes\log4j.properties" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload_776ee455_1453bb181b6__8000_00007880.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload_776ee455_1453bb181b6__8000_00007883.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload_776ee455_1453bb181b6__8000_00007886.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload_776ee455_1453bb181b6__8000_00007889.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload_cf7d419_1454f9ef8a4__8000_00000014.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload_cf7d419_1454f9ef8a4__8000_00000017.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload_cf7d419_1454f9ef8a4__8000_00000020.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload_cf7d419_1454f9ef8a4__8000_00000023.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload_cf7d419_1454f9ef8a4__8000_00000026.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload_cf7d419_1454f9ef8a4__8000_00000029.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload__6795ead4_1458e102cdd__8000_00000965.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload__6795ead4_1458e102cdd__8000_00000974.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload__6795ead4_1458e102cdd__8000_00000977.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload__6795ead4_1458e102cdd__8000_00000980.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload__6795ead4_1458e102cdd__8000_00000983.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload__6795ead4_1458e102cdd__8000_00000986.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload__6795ead4_1458e102cdd__8000_00000989.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload__6795ead4_1458e102cdd__8000_00000992.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload__6795ead4_1458e102cdd__8000_00000995.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload__6795ead4_1458e102cdd__8000_00000998.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\upload__6795ead4_1458e102cdd__8000_00001001.tmp" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\readme.md" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\phantomjs\readme.md" />
     <Content Include="Models\EnergyTerminalNEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EnergyTerminalNEntities.Context.cs</LastGenOutput>
@@ -267,12 +358,154 @@
       <DependentUpon>EnergyTerminalNEntities.edmx</DependentUpon>
       <LastGenOutput>EnergyTerminalNEntities.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\app.js" />
-    <Content Include="Scripts\bootstrap-datetimepicker.js" />
-    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\data.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\3d-column-interactive\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\3d-column-null-values\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\3d-column-stacking-grouping\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\3d-pie-donut\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\3d-pie\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\3d-scatter-draggable\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\area-basic\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\area-inverted\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\area-missing\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\area-negative\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\area-stacked-percent\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\area-stacked\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\arearange-line\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\arearange\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\areaspline\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\bar-basic\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\bar-negative-stack\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\bar-stacked\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\box-plot\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\bubble-3d\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\bubble\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\column-basic\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\column-drilldown\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\column-negative\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\column-parsed\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\column-placement\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\column-rotated-labels\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\column-stacked-and-grouped\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\column-stacked-percent\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\column-stacked\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\columnrange\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\combo-dual-axes\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\combo-meteogram\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\combo-multi-axes\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\combo-regression\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\combo\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\dynamic-click-to-add\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\dynamic-master-detail\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\dynamic-update\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\error-bar\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\funnel\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\gauge-clock\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\gauge-dual\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\gauge-solid\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\gauge-speedometer\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\gauge-vu-meter\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\heatmap-canvas\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\heatmap\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\line-ajax\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\line-basic\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\line-labels\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\line-log-axis\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\line-time-series\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\pie-basic\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\pie-donut\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\pie-drilldown\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\pie-gradient\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\pie-legend\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\pie-monochrome\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\pie-semi-circle\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\polar-spider\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\polar-wind-rose\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\polar\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\pyramid\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\renderer\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\scatter\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\sparkline\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\spline-inverted\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\spline-irregular-time\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\spline-plot-bands\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\spline-symbols\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\examples\waterfall\index.htm" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\pom.xml" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\java\com\highcharts\export\converter\SVGConverter.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\java\com\highcharts\export\converter\SVGConverterException.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\java\com\highcharts\export\pool\AbstractPool.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\java\com\highcharts\export\pool\BlockingQueuePool.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\java\com\highcharts\export\pool\ObjectFactory.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\java\com\highcharts\export\pool\ObjectPool.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\java\com\highcharts\export\pool\PoolException.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\java\com\highcharts\export\pool\ServerObjectFactory.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\java\com\highcharts\export\server\Server.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\java\com\highcharts\export\server\ServerState.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\java\com\highcharts\export\server\TimeOut.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\java\com\highcharts\export\util\MimeType.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\java\com\highcharts\export\util\TempDir.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\resources\phantomjs\data.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\resources\phantomjs\highcharts-3d.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\resources\phantomjs\highcharts-convert.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\resources\phantomjs\highcharts-more.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\resources\phantomjs\highcharts.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\resources\phantomjs\jquery.1.9.1.min.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\resources\phantomjs\map.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-convert\src\main\resources\spring-convert.xml" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\pom.xml" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\java\com\highcharts\export\controller\ExportController.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\java\com\highcharts\export\filter\CorsFilter.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\META-INF\context.xml" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\css\demo.css" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\Highcharts-icon-160px.png" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\codemirror.css" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\codemirror.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\mode\javascript\index.html" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\mode\javascript\javascript.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\mode\javascript\typescript.html" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\mode\xml\index.html" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\mode\xml\xml.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\closetag.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\dialog.css" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\dialog.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\foldcode.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\formatting.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\javascript-hint.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\loadmode.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\match-highlighter.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\multiplex.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\overlay.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\pig-hint.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\runmode-standalone.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\runmode.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\search.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\searchcursor.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\simple-hint.css" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\simple-hint.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\codemirror\util\xml-hint.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\resources\lib\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\WEB-INF\jspf\callback.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\WEB-INF\jspf\config.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\WEB-INF\jspf\lexl.svg" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\WEB-INF\spring\export-servlet.xml" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\WEB-INF\spring\spring-context.xml" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\src\main\webapp\WEB-INF\web.xml" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\tmp\jsp\org\apache\jsp\WEB_002dINF\pages\error_jsp.java" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\pom.xml" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\phantomjs\data.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\phantomjs\highcharts-3d.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\phantomjs\highcharts-convert.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\phantomjs\highcharts-more.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\phantomjs\highcharts.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\phantomjs\jquery.1.9.1.min.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\phantomjs\map.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\exporting-server\php\php-batik\index.php" />
+    <Content Include="Scripts\Highcharts-4.0.1\gfx\vml-radial-gradient.png" />
+    <Content Include="Scripts\Highcharts-4.0.1\graphics\meteogram-symbols-30px.png" />
+    <Content Include="Scripts\Highcharts-4.0.1\graphics\skies.jpg" />
+    <Content Include="Scripts\Highcharts-4.0.1\graphics\snow.png" />
+    <Content Include="Scripts\Highcharts-4.0.1\graphics\sun.png" />
+    <Content Include="Scripts\Highcharts-4.0.1\index.htm" />
     <Content Include="Scripts\Highcharts-4.0.1\js\adapters\standalone-framework.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\adapters\standalone-framework.src.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-3d.js" />
@@ -306,51 +539,11 @@
     <Content Include="Scripts\Highcharts-4.0.1\js\themes\grid.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\themes\sand-signika.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\themes\skies.js" />
-    <Content Include="Scripts\highcharts\4.2.0\adapters\standalone-framework.js" />
-    <Content Include="Scripts\highcharts\4.2.0\adapters\standalone-framework.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\highcharts-3d.js" />
-    <Content Include="Scripts\highcharts\4.2.0\highcharts-3d.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\highcharts-more.js" />
-    <Content Include="Scripts\highcharts\4.2.0\highcharts-more.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\highcharts.js" />
-    <Content Include="Scripts\highcharts\4.2.0\highcharts.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\boost.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\boost.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\broken-axis.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\broken-axis.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\canvas-tools.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\canvas-tools.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\data.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\data.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\drilldown.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\drilldown.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\exporting.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\exporting.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\funnel.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\funnel.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\heatmap.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\heatmap.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\no-data-to-display.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\no-data-to-display.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\offline-exporting.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\offline-exporting.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\solid-gauge.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\solid-gauge.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\treemap.js" />
-    <Content Include="Scripts\highcharts\4.2.0\modules\treemap.src.js" />
-    <Content Include="Scripts\highcharts\4.2.0\themes\dark-blue.js" />
-    <Content Include="Scripts\highcharts\4.2.0\themes\dark-green.js" />
-    <Content Include="Scripts\highcharts\4.2.0\themes\dark-unica.js" />
-    <Content Include="Scripts\highcharts\4.2.0\themes\gray.js" />
-    <Content Include="Scripts\highcharts\4.2.0\themes\grid-light.js" />
-    <Content Include="Scripts\highcharts\4.2.0\themes\grid.js" />
-    <Content Include="Scripts\highcharts\4.2.0\themes\sand-signika.js" />
-    <Content Include="Scripts\highcharts\4.2.0\themes\skies.js" />
-    <None Include="Scripts\jquery-2.0.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.0.0.js" />
     <Content Include="Scripts\jquery-2.0.0.min.js" />
     <Content Include="Scripts\jquery-2.0.0.min.map" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -368,7 +561,6 @@
     <Content Include="Scripts\simple-tabs.min.js" />
     <Content Include="Scripts\tether\tether.js" />
     <Content Include="Scripts\tether\tether.min.js" />
-    <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -382,9 +574,15 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\MidleChart.cshtml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\jquery-2.0.0.intellisense.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\_references.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\target\generated-sources\annotations\" />
+    <Folder Include="Scripts\Highcharts-4.0.1\exporting-server\java\highcharts-export\highcharts-export-web\tmp\" />
     <Folder Include="Views\ChartsData\" />
   </ItemGroup>
   <ItemGroup>
@@ -393,17 +591,6 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Scripts\app.ts" />
-    <TypeScriptCompile Include="Scripts\typings\highcharts\highcharts-modules-boost.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\highcharts\highcharts-modules-exporting.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\highcharts\highcharts-modules-no-data-to-display.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\highcharts\highcharts-modules-offline-exporting.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\highcharts\highcharts-more.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\highcharts\highcharts.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\highcharts\highstock.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

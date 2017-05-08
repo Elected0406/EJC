@@ -33,7 +33,7 @@ var ChartsList = (function () {
     }
     ChartsList.prototype.UpdateChartList = function () {
         var _this = this;
-        $.getJSON('http://localhost:39955/Home/GetCharts?id=' + $('#Groups').val(), function (data) {
+        $.getJSON('http://www.energiejournaal.be/charts/Home/GetCharts?id=' + $('#Groups').val(), function (data) {
             _this.charts = data;
             var select = '<select class="form-control"><option disabled selected> Select Chart</option>';
             for (var i = 0; i < _this.charts.length; i++) {
@@ -53,7 +53,7 @@ var DataList = (function () {
     }
     DataList.prototype.UpdateChartData = function () {
         var _this = this;
-        $.getJSON('http://localhost:39955/Home/GetData?id=' + $('#Chart').val()
+        $.getJSON('http://www.energiejournaal.be/charts/Home/GetData?id=' + $('#Chart').val()
             + '&' + 'mindate=' + $('#mindate').val() + '&' + 'maxdate=' + $('#maxdate').val(), function (data) {
             var select = '<div class="row fpr fmt">' +
                 '<div class="col-sm-6 btn-primary">' + 'ChartName' + '</div>' +

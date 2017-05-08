@@ -31,8 +31,6 @@ namespace Energiejournaal.Controllers
                 .InitChart(new Chart
                 {
                     DefaultSeriesType = ChartTypes.Line,
-                    MarginRight = 130,
-                    MarginBottom = 25,
                     ClassName = "chart"
                 })
                 .SetTitle(new Title
@@ -66,21 +64,18 @@ namespace Energiejournaal.Controllers
                                     this.x +': '+ this.y;
                                 }"
                 })
-                .SetLegend(new Legend
-                {
-                    Layout = Layouts.Vertical,
-                    Align = HorizontalAligns.Right,
-                    VerticalAlign = VerticalAligns.Top,
-                    X = -10,
-                    Y = 100,
-                    BorderWidth = 0
-                })
                 .SetSeries(new[]
                 {
-                    new Series { Name = "Tokyo", Data = new Data(ChartsData.TokioData) },
-                    new Series { Name = "New York", Data = new Data(ChartsData.NewYorkData) },
-                    new Series { Name = "Berlin", Data = new Data(ChartsData.BerlinData) },
-                    new Series { Name = "London", Data = new Data(ChartsData.LondonData) }
+                    new Series { Name = "Eeklo Honderdbundermolen", Data = new Data(ChartsData.EekloHonderdbundermolenData) },
+                    new Series { Name = "Eeklo Verheylegatmolen", Data = new Data(ChartsData.EekloVerheylegatmolenData) },
+                    new Series { Name = "Eeklo Leidijkmolen", Data = new Data(ChartsData.EekloLeidijkmolenData) },
+                    new Series { Name = "Gent", Data = new Data(ChartsData.GentData) },
+                    new Series { Name = "Gistel", Data = new Data(ChartsData.GistelData) },
+                    new Series { Name = "Doornik", Data = new Data(ChartsData.DoornikData) },
+                    new Series { Name = "Eeklo 2", Data = new Data(ChartsData.Eeklo2Data) },
+                    new Series { Name = "Waimes", Data = new Data(ChartsData.WaimesData) },
+                    new Series { Name = "Mesnil", Data = new Data(ChartsData.MesnilData) },
+                    new Series { Name = "Essen-Kalmthout", Data = new Data(ChartsData.EssenKalmthoutData) }
                 }
                 );
 
